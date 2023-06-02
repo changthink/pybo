@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <!-- pybo CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% block extra-style %}
+    {% endblock %}
+    <title>Mysite</title>
+</head>
+
+<body>
+<!-- 기본 navbar삽입 -->
+{% include "navbar.html" %}
+
+<!-- 기본 템플릿 안에 삽입될 콘텐츠 블럭 -->
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-12 col-md-3 col-lg-2 p-2">
+            <!--            {% include "sidebar.html" %}-->
+        </div>
+        <div class="col-sm-12 col-md-9 col-lg-10 p-2">
+            <div id="content" class="border-top border-secondary">
+                <div class="content_block">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery JS -->
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'bootstrap.min.js' %}"></script>
+
+<!-- 자바스크립트 블럭 -->
+{% block script %}
+{% endblock %}
+
+</body>
+</html>

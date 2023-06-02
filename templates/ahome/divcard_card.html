@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load pybo_filter %}
+
+<!--base.html에 했는데도, 추가적으로 로드를 해줘야하네-->
+{% load static %}
+
+{% block content %}
+<P>이미지리스트</P>
+<div class="container my-3"">
+<div class="card" style="width: 18rem;display:inline-block;">
+    <img class="card-img-top" src="{% static 'img/img11.png' %}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">img11</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+<div class="card" style="width: 18rem;display:inline-block;">
+    <img class="card-img-top" src="{% static 'img/img12.png' %}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">img12</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+<div class="card" style="width: 18rem;display:inline-block;">
+    <img class="card-img-top" src="{% static 'img/img13.png' %}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">img13</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+<div class="card" style="width: 18rem;display:inline-block;">
+    <img class="card-img-top" src="{% static 'img/img14.png' %}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">img14</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+<div class="card" style="width: 18rem;display:inline-block;">
+    <img class="card-img-top" src="{% static 'img/img11.png' %}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">img15</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+<div class="card" style="width: 18rem;display:inline-block;">
+    <img class="card-img-top" src="{% static 'img/img11.png' %}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">img16</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+

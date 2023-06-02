@@ -1,0 +1,67 @@
+# -*- coding: utf-8 -*-
+
+{% extends 'base.html' %}
+{% load humanize %}
+{% load pybo_filter %}
+{% block content %}
+<div class="container my-3">
+    <P style="font-size:13px;">아파트 실거래가격지수(기준시점 : 2017.11월= 100 )</P>
+
+    <table class="table table-striped" style="width:100%; font-size:13px">
+        <thead>
+        <tr style="color:white; background-color:black;">
+            <th style="width:100px;">구분</th>
+            <th>전국</th>
+            <th>수도권</th>
+            <th>지방</th>
+            <th>서울</th>
+            <th>부산</th>
+            <th>대구</th>
+            <th>인천</th>
+            <th>광주</th>
+            <th>대전</th>
+            <th>울산</th>
+            <th>세종</th>
+            <th>경기</th>
+            <th>강원</th>
+            <th>충북</th>
+            <th>충남</th>
+            <th>전북</th>
+            <th>전남</th>
+            <th>경북</th>
+            <th>경남</th>
+            <th>제주</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for value in data %}
+        <tr>
+            <td> {{ value.구분 }}</td>
+            <td> {{ value.전국 }}</td>
+            <td> {{ value.수도권 }}</td>
+            <td> {{ value.지방 }}</td>
+            <td> {{ value.서울 }}</td>
+            <td> {{ value.부산 }}</td>
+            <td> {{ value.대구 }}</td>
+            <td> {{ value.인천 }}</td>
+            <td> {{ value.광주 }}</td>
+            <td> {{ value.대전 }}</td>
+            <td> {{ value.울산 }}</td>
+            <td> {{ value.세종 }}</td>
+            <td> {{ value.경기 }}</td>
+            <td> {{ value.강원 }}</td>
+            <td> {{ value.충북 }}</td>
+            <td> {{ value.충남 }}</td>
+            <td> {{ value.전북 }}</td>
+            <td> {{ value.전남 }}</td>
+            <td> {{ value.경북 }}</td>
+            <td> {{ value.경남 }}</td>
+            <td> {{ value.제주 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+

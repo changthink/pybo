@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}photo-List{% endblock %}
+
+{% block content %}
+{% for post in photos %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 panel panel-default">
+            <hr>
+            <h3 style="text-align:center;color:blue;">{{ post.text|linebreaksbr }}</h3>
+            <p><img src="{{ post.photo.url }}" style="width:80%;"></p>
+            <button type="button" class="btn btn-info">
+                {{ post.author.username }}
+            </button>
+
+            <p class="text-right">
+                <a href="{% url 'photo:photo_detail' pk=post.id %}"
+                   class="btn btn-xs btn-success">수정</a>
+            </p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+    {% endfor %}
+    {% endblock %}

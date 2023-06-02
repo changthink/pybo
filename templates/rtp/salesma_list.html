@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+<div class="container">
+    <table class="table table-striped" style="font-size:12px">
+        <hr>
+        <h5>실거래가-매매_수도권</h5>
+        <p><a href="{% url 'rtp:search_sma' %}">검색화면으로</a></p>
+        <thead>
+        <tr>
+            <th>광역시도</th>
+            <th>시자치구</th>
+            <th>법정동</th>
+            <th>아파트</th>
+            <th>전용면적</th>
+            <th>전용</th>
+            <th>거래금액</th>
+            <th>층</th>
+            <th>구분</th>
+            <th>거래유형</th>
+            <th>기준월</th>
+        </tr></br>
+         </thead>
+        <tbody>
+        {% for value in data %}
+        <tr>
+            <td> {{ value.광역시도 }}</td>
+            <td> {{ value.시자치구 }}</td>
+            <td> {{ value.법정동 }}</td>
+            <td> {{ value.아파트 }}</td>
+            <td> {{ value.전용면적 }}</td>
+            <td> {{ value.전용 }}</td>
+            <td> {{ value.거래금액|intcomma }}</td>
+            <td> {{ value.층 }}</td>
+            <td> {{ value.구분 }}</td>
+            <td> {{ value.거래유형 }}</td>
+            <td> {{ value.기준월 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

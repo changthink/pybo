@@ -1,0 +1,94 @@
+<header class="header clearfix">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+            <ul class="nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'common:logout' %}" class="nav-link">Welcome,
+                    {{user.get_username}}(로그아웃)</a></li>
+                <li class="nav-item"><a href="{% url 'pybo:index' %}" class="active nav-link ">게시판</a></li>
+                <li class="nav-item"><a href="{% url 'ahome:apply_base' %}" class="nav-link">청약홈자료</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        실거래가자료
+                    </a>
+                    <ul class="dropdown-menu" style="font-size:14px;">
+                        <li><a class="dropdown-item" href="{% url 'rtp:search' %}">분양권실거래가</a></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'rtp:search_sma' %}">아파트실거래가_수도권</a></li>
+                        <li><a class="dropdown-item" href="{% url 'rtp:search_big6' %}">아파트실거래가_지방광역시</a></li>
+                        <li><a class="dropdown-item" href="{% url 'rtp:search_dodo' %}">아파트실거래가_팔도</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        부동산관련
+                    </a>
+                    <ul class="dropdown-menu" style="font-size:14px;">
+                        <li><a class="dropdown-item" href="{% url 'ahome:ibju_list' %}">입주예정</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:onsale_list' %}">미분양</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:pop_list' %}">인구세대수</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:const_list' %}">공사비지수</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:rtech_list' %}">부동산테크</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:table_list' %}">부동산원 실거래가격지수1</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:tbl_kb50' %}">KB선도아파트50지수</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:tbl_pir' %}">KB PIR</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:tbl_floorarea' %}">용적률</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        사업관리
+                    </a>
+                    <ul class="dropdown-menu" style="font-size:14px;">
+                        <li><a class="dropdown-item" href="{% url 'ahome:pjcode_list' %}">사업코드</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:tbl_allpj' %}">ALL_PJ</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ahome:pj_list' %}">PART_PJ</a></li>
+                        <li><a class="dropdown-item" href="{% url 'photo:brand_list' %}">참고_unit</a></li>
+                        <li><a class="dropdown-item" href="{% url 'photo:viewimg_list' %}">참고_조감도</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+
+                <!--<li class="nav-item dropdown">-->
+                    <!--<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"-->
+                       <!--aria-expanded="false">-->
+                        <!--기타자료-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu" style="font-size:14px;">-->
+                        <!--<li><a class="dropdown-item" href="{% url 'photo:photo_list' %}">평면도</a></li>-->
+                        <!--<li><a class="dropdown-item" href="{% url 'photo:photo_upload' %}">평면도업로드</a></li>-->
+                        <!--<li><a class="dropdown-item" href="#">기타</a></li>-->
+                        <!--<li><a class="dropdown-item" href="#">기타</a></li>-->
+                        <!--<li>-->
+                            <!--<hr class="dropdown-divider">-->
+                        <!--</li>-->
+                        <!--<li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+
+
+                {% else %}
+                <li class="nav-item"><a href="{% url 'common:login' %}" class="nav-link">로그인</a></li>
+                <!--<li class="nav-item"><a href="{% url 'common:signup' %}" class="nav-link">회원가입</a></li>-->
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>

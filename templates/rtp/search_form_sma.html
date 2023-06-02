@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script language='javascript'>
+<!--
+     var cnt = new Array();
+     cnt[0] = new Array('전체');
+     cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
+     cnt[2] = new Array('전체','계양구','남구','남동구','동구','부평구','서구','연수구','중구','강화군','옹진군');
+     cnt[3] = new Array('전체','고양시','과천시','광명시','구리시','군포시','남양주시','동두천시','부천시','성남시','수원시','시흥시','안산시','안양시','오산시','의왕시','의정부시','평택시','하남시','가평군','광주시','김포시','안성시','양주군','양평군','여주군','연천군','용인시','이천군','파주시','포천시','화성시');
+
+     function change(add) {
+     sel=document.form.county
+       /* 옵션메뉴삭제 */
+       for (i=sel.length-1; i>=0; i--){
+         sel.options[i] = null
+         }
+       /* 옵션박스추가 */
+       for (i=0; i < cnt[add].length;i++){
+                         sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
+         }
+     }
+     <!--var date = new Date()-->
+     <!--y = date.getFullYear()-->
+     <!--m = date.getMonth()-->
+     <!--eofmonth= new Date(y,m+1,0)-->
+     <!--document.getElementById("end").setAttribute("max", eofmonth);-->
+//-->
+</script>
+
+<div class="container" style="font-size:14px">
+    <hr>
+    <br>
+    <h4>아파트 실거래가조회[수도권]</h4>
+    <div class="row">
+        <form name=form method=post action="{% url 'rtp:salesma' %}">
+            {% csrf_token %}
+
+            <div style="padding:10px">광역시도:
+                <select name='city' onchange="change(this.selectedIndex);" class=input style="width:150px;">
+                    <option value='전체'>전체</option>
+                    <option value='서울특별시'>서울특별시</option>
+                    <option value='인천광역시'>인천광역시</option>
+                    <option value='경기도'>경기도</option>
+                </select>
+            </div>
+            <div style="padding:10px">시자치군:
+                <select name='county' class=select style="width:150px;">
+                    <option value=''>전체</option>
+                </select>
+            </div>
+            <br/>
+            <div style="padding:10px">
+                <label for="size_begin">전 용 면 적:</label>
+                <input type="text" id="size_begin" name="size_begin" , min="40" value="59" style="width:40px;">
+                <label for="size_end">~</label>
+                <input type="text" id="size_end" name="size_end" , max="150" , value="85" style="width:40px;">
+            </div>
+            <br/>
+            <div style="padding:10px">
+                <label for="start">조회시작월:</label>
+                <input type="date" id="start" name="start" , min="2022-12-31" value="2023-01-31" style="width:150px;">
+            </div>
+            <div style="padding:10px">
+                <label for="end">조회종료월:</label>
+                <input type="date" id="end" name="end" , max="" value='2023-05-31' style="width:150px;">
+            </div>
+            <br/>
+            <div style="text-align:center; padding:10px; width:150px">
+                <button type="submit">검색</button>
+            </div>
+        </form>
+        </fieldset>
+    </div>
+</div>
+{% endblock %}
+

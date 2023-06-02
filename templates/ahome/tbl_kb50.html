@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load pybo_filter %}
+{% block content %}
+<div class="container my-3">
+    <P style="font-size:13px;">선도아파트50지수 : KB부동산 월간통계 (기준시점 : 2022.01월= 100 )</P>
+
+    <table class="table table-striped" style="width:50%; font-size:13px">
+        <thead>
+        <tr style="color:white; background-color:black;">
+            <th style="width:100px;">년월</th>
+            <th>지수</th>
+            <th>전월대비</th>
+            <th>전년동월대비</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for value in data %}
+        <tr>
+            <td> {{ value.년월 }}</td>
+            <td> {{ value.지수 }}</td>
+            <td> {{ value.전월대비 }}</td>
+            <td> {{ value.전년동월대비 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
+

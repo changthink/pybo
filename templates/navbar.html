@@ -1,0 +1,25 @@
+<!-- 네비게이션바 -->
+<header class="header clearfix">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+            <ul class="nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'common:logout' %}" class="nav-link">Welcome, {{user.get_username}}(로그아웃)</a></li>
+                <li class="nav-item"><a href="{% url 'pybo:index' %}" class="active nav-link ">게시판</a></li>
+                <li class="nav-item"><a href="{% url 'ahome:apply_base' %}" class="nav-link">청약홈자료</a></li>
+                <li class="nav-item"><a href="{% url 'ahome:ibju_list' %}" class="nav-link">입주예정</a></li>
+                <li class="nav-item"><a href="{% url 'ahome:onsale_list' %}" class="nav-link">미분양</a></li>
+                <li class="nav-item"><a href="{% url 'ahome:pop_list' %}" class="nav-link">인구세대수</a></li>
+                <li class="nav-item"><a href="{% url 'ahome:const_list' %}" class="nav-link">공사비지수</a></li>
+                <li class="nav-item"><a href="{% url 'ahome:pjcode_list' %}" class="nav-link">pjcode</a></li>
+                <li class="nav-item"><a href="{% url 'ahome:pj_list' %}" class="nav-link">사업관리</a></li>
+
+                {% else %}
+                <li class="nav-item"><a href="{% url 'common:login' %}" class="nav-link">로그인</a></li>
+                <!--<li class="nav-item"><a href="{% url 'common:signup' %}" class="nav-link">회원가입</a></li>-->
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>

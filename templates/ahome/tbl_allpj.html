@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load pybo_filter %}
+{% block content %}
+<div class="container my-3">
+    <P style="font-size:13px;">All_PJ</P>
+
+    <table class="table table-striped" style="width:100%; font-size:13px">
+        <thead>
+        <tr style="color:white; background-color:black; font-size:12px;">
+            <!--<th style="width:150px;">담당팀</th>-->
+            <th>PJCODE</th>
+            <th>PJ명</th>
+            <th>도급금액</th>
+            <th>착공</th>
+            <th>준공</th>
+            <th>공기</th>
+            <th>지역</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for value in data %}
+        <tr style="text-align:left">
+            <!--<td> {{ value.담당팀 }}</td>-->
+            <td> {{ value.PJCODE }}</td>
+            <td> {{ value.PJ명 }}</td>
+            <td> {{ value.도급금액|intcomma }}</td>
+            <td> {{ value.착공 }}</td>
+            <td> {{ value.준공 }}</td>
+            <td> {{ value.공기 }}</td>
+            <td> {{ value.지역 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

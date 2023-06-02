@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load pybo_filter %}
+{% block content %}
+<div class="container my-3">
+    <P style="font-size:13px;"><a href="https://www.data.go.kr/data/15101891/fileData.do">[용적률]</a></P>
+
+    <table class="table table-striped" style="width:100%; font-size:13px">
+        <thead>
+        <tr>
+            <th style="width:100px;">구분</th>
+            <th>제2종일반</th>
+            <th>제3종일반</th>
+            <th>준주거</th>
+            <th>중심상업</th>
+            <th>일반상업</th>
+            <th>근린상업</th>
+            <th>유통상업</th>
+            <th>전용공업</th>
+            <th>일반공업</th>
+            <th>준공업</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for value in data %}
+        <tr>
+            <td> {{ value.구분 }}</td>
+            <td> {{ value.제2종일반 }}</td>
+            <td> {{ value.제3종일반 }}</td>
+            <td> {{ value.준주거 }}</td>
+            <td> {{ value.중심상업 }}</td>
+            <td> {{ value.일반상업 }}</td>
+            <td> {{ value.근린상업 }}</td>
+            <td> {{ value.유통상업 }}</td>
+            <td> {{ value.전용공업 }}</td>
+            <td> {{ value.일반공업 }}</td>
+            <td> {{ value.준공업 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+

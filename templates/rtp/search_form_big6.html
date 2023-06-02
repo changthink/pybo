@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script language='javascript'>
+<!--
+     var cnt = new Array();
+     cnt[0] = new Array('전체');
+     cnt[1] = new Array('전체','강서구','금정구','남구','동구','동래구','부산진구','북구','사상구','사하구','서구','수영구','연제구','영도구','중구','해운대구','기장군');
+     cnt[2] = new Array('전체','남구','달서구','동구','북구','서구','수성구','중구','달성군');
+     cnt[3] = new Array('전체','광산구','남구','동구','북구','서구');
+     cnt[4] = new Array('전체','대덕구','동구','서구','유성구','중구');
+     cnt[5] = new Array('전체','남구','동구','북구','중구','울주군');
+     cnt[6] = new Array('전체','세종특별자치시');
+
+     function change(add) {
+     sel=document.form.county
+       /* 옵션메뉴삭제 */
+       for (i=sel.length-1; i>=0; i--){
+         sel.options[i] = null
+         }
+       /* 옵션박스추가 */
+       for (i=0; i < cnt[add].length;i++){
+                         sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
+         }
+     }
+     <!--var date = new Date()-->
+     <!--y = date.getFullYear()-->
+     <!--m = date.getMonth()-->
+     <!--eofmonth= new Date(y,m+1,0)-->
+     <!--document.getElementById("end").setAttribute("max", eofmonth);-->
+//-->
+</script>
+
+<div class="container" style="font-size:14px">
+    <hr>
+    <br>
+    <h4>아파트 실거래가조회[지방광역시]</h4>
+    <div class="row">
+        <form name=form method=post action="{% url 'rtp:salebig6' %}">
+            {% csrf_token %}
+
+            <div style="padding:10px">광역시도:
+                <select name='city' onchange="change(this.selectedIndex);" class=input style="width:150px;">
+                    <option value='전체'>전체</option>
+                    <option value='부산광역시'>부산광역시</option>
+                    <option value='대구광역시'>대구광역시</option>
+                    <option value='광주광역시'>광주광역시</option>
+                    <option value='대전광역시'>대전광역시</option>
+                    <option value='울산광역시'>울산광역시</option>
+                    <option value='세종특별자치시'>세종특별자치시</option>
+                </select>
+            </div>
+            <div style="padding:10px">시자치군:
+                <select name='county' class=select style="width:150px;">
+                    <option value=''>전체</option>
+                </select>
+            </div>
+            <br/>
+            <div style="padding:10px">
+                <label for="size_begin">전 용 면 적:</label>
+                <input type="text" id="size_begin" name="size_begin" , min="40" value="59" style="width:40px;">
+                <label for="size_end">~</label>
+                <input type="text" id="size_end" name="size_end" , max="150" , value="85" style="width:40px;">
+            </div>
+            <br/>
+            <div style="padding:10px">
+                <label for="start">조회시작월:</label>
+                <input type="date" id="start" name="start" , min="2022-12-31" value="2023-01-31" style="width:150px;">
+            </div>
+            <div style="padding:10px">
+                <label for="end">조회종료월:</label>
+                <input type="date" id="end" name="end" , max="" value='2023-05-31' style="width:150px;">
+            </div>
+            <br/>
+            <div style="text-align:center; padding:10px; width:150px">
+                <button type="submit">검색</button>
+            </div>
+        </form>
+        </fieldset>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load pybo_filter %}
+{% block content %}
+<div class="container my-3">
+    <P style="font-size:13px;">kb pir(기준시점 : 2023.03월)</P>
+
+    <table class="table table-striped" style="width:100%; font-size:13px">
+        <thead>
+        <tr style="color:white; background-color:black; font-size:12px;">
+            <th style="width:80px;">구분</th>
+            <th>전국소득1분위</th>
+            <th>전국소득2분위</th>
+            <th>전국소득3분위</th>
+            <th>전국소득4분위</th>
+            <th>전국소득5분위</th>
+            <th>서울소득1분위</th>
+            <th>서울소득2분위</th>
+            <th style="color:red;">서울소득3분위</th>
+            <th>서울소득4분위</th>
+            <th>서울소득5분위</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for value in data %}
+        <tr style="text-align:center">
+            <td> {{ value.구분 }}</td>
+            <td> {{ value.전국소득1분위 }}</td>
+            <td> {{ value.전국소득2분위 }}</td>
+            <td> {{ value.전국소득3분위 }}</td>
+            <td> {{ value.전국소득4분위 }}</td>
+            <td style="border-right: 1px solid black;"> {{ value.전국소득5분위 }}</td>
+            <td> {{ value.서울소득1분위 }}</td>
+            <td> {{ value.서울소득2분위 }}</td>
+            <td style="color:red;"> {{ value.서울소득3분위 }}</td>
+            <td> {{ value.서울소득4분위 }}</td>
+            <td> {{ value.서울소득5분위 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
